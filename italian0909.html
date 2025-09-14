@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Воркбук по итальянскому языку - Уровень A1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav {
+            background: #2c3e50;
+            padding: 1rem;
+            position: sticky;
+            top: 120px;
+            z-index: 99;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .block {
+            margin-bottom: 3rem;
+            border: 2px solid #ecf0f1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .block-header {
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .block-content {
+            padding: 2rem;
+        }
+
+        .theory {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #3498db;
+        }
+
+        .exercise {
+            background: #fff5f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #e74c3c;
+        }
+
+        .exercise h4 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .pronunciation {
+            font-family: 'Courier New', monospace;
+            background: #fffbf0;
+            padding: 0.5rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 0.2rem;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .vocab-item {
+            background: #f1c40f;
+            color: #2c3e50;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .vocab-item:hover {
+            transform: scale(1.05);
+        }
+
+        .dialog {
+            background: #e8f5e8;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 2px dashed #27ae60;
+        }
+
+        .dialog-line {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        .dialog-a {
+            background: #3498db;
+            color: white;
+            border-radius: 15px 15px 5px 15px;
+            margin-right: 2rem;
+        }
+
+        .dialog-b {
+            background: #e74c3c;
+            color: white;
+            border-radius: 15px 15px 15px 5px;
+            margin-left: 2rem;
+        }
+
+        .fill-blank {
+            border: none;
+            border-bottom: 2px solid #3498db;
+            background: transparent;
+            padding: 0.2rem;
+            margin: 0 0.5rem;
+            min-width: 100px;
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        .fill-blank:focus {
+            outline: none;
+            border-bottom-color: #e74c3c;
+        }
+
+        .verb-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .verb-group {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .verb-group h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .conjugation {
+            text-align: left;
+            font-family: 'Courier New', monospace;
+        }
+
+        .answers {
+            background: #d5f4e6;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border: 2px solid #27ae60;
+        }
+
+        .answers h3 {
+            color: #27ae60;
+            margin-bottom: 1rem;
+        }
+
+        .homework {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .homework h3 {
+            color: #8e44ad;
+            margin-bottom: 1rem;
+        }
+
+        .homework ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .homework li {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(255,255,255,0.3);
+            border-radius: 5px;
+        }
+
+        .pronunciation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .pronunciation-group {
+            background: #fff9c4;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid #f39c12;
+        }
+
+        .pronunciation-group h4 {
+            color: #e67e22;
+            margin-bottom: 1rem;
+        }
+
+        .italian-word {
+            font-style: italic;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .verb-table {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .pronunciation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .print-btn:hover {
+            background: #2980b9;
+            transform: scale(1.1);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav, .print-btn {
+                display: none;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🇮🇹 Воркбук по итальянскому языку</h1>
+            <p>Уровень A1 • На основе материала от 09.09.2025</p>
+        </header>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#block1">🔤 Произношение Z</a></li>
+                <li><a href="#block2">💬 Благодарность</a></li>
+                <li><a href="#block3">☕ В баре</a></li>
+                <li><a href="#block4">📝 Грамматика</a></li>
+                <li><a href="#block5">🍕 Лексика</a></li>
+                <li><a href="#block6">🎭 Ситуации</a></li>
+                <li><a href="#answers">✅ Ответы</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <section id="block1" class="block">
+                <div class="block-header">
+                    🔤 БЛОК 1: ПРОИЗНОШЕНИЕ БУКВЫ Z
+                </div>
+                <div class="block-content">
+                    <div class="theory">
+                        <h3>📚 Теория</h3>
+                        <p>В итальянском языке буква <strong>Z</strong> может произноситься двумя способами:</p>
+                        <ul>
+                            <li><strong>[ts]</strong> - глухой звук (как в английском "cats")</li>
+                            <li><strong>[dz]</strong> - звонкий звук (как в английском "beds")</li>
+                        </ul>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Упражнение 1.1 - Произношение</h4>
+                        <p><strong>Слова для отработки:</strong></p>
+                        <div class="vocab-grid">
+                            <div class="vocab-item">zero <span class="pronunciation">[ˈdzɛːro]</span></div>
+                            <div class="vocab-item">mozzarella <span class="pronunciation">[mottsaˈrɛlla]</span></div>
+                            <div class="vocab-item">tramezzino <span class="pronunciation">[tramedˈdziːno]</span></div>
+                            <div class="vocab-item">grazie <span class="pronunciation">[ˈgratsje]</span></div>
+                            <div class="vocab-item">abbastanza <span class="pronunciation">[abbasˈtantsa]</span></div>
+                        </div>
+                        <p><strong>Задание:</strong> Прочитайте слова вслух, обращая внимание на произношение Z.</p>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Упражнение 1.2 - Классификация</h4>
+                        <p>Разделите слова на две группы по произношению Z:</p>
+                        
+                        <div class="pronunciation-grid">
+                            <div class="pronunciation-group">
+                                <h4>Z = [ts] (глухой звук):</h4>
+                                <input type="text" class="fill-blank" placeholder="слово 1">
+                                <input type="text" class="fill-blank" placeholder="слово 2">
+                                <input type="text" class="fill-blank" placeholder="слово 3">
+                            </div>
+                            <div class="pronunciation-group">
+                                <h4>Z = [dz] (звонкий звук):</h4>
+                                <input type="text" class="fill-blank" placeholder="слово 1">
+                                <input type="text" class="fill-blank" placeholder="слово 2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="block2" class="block">
+                <div class="block-header">
+                    💬 БЛОК 2: ВЫРАЖЕНИЯ БЛАГОДАРНОСТИ
+                </div>
+                <div class="block-content">
+                    <div class="theory">
+                        <h3>📚 Теория</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                            <div>
+                                <h4>🙏 Как поблагодарить (Ringraziare):</h4>
+                                <ul>
+                                    <li><span class="italian-word">Grazie</span> - Спасибо</li>
+                                    <li><span class="italian-word">Grazie mille</span> - Большое спасибо</li>
+                                    <li><span class="italian-word">Ti ringrazio</span> - Благодарю тебя</li>
+                                    <li><span class="italian-word">La ringrazio</span> - Благодарю Вас (формально)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>😊 Как ответить на благодарность (Rispondere):</h4>
+                                <ul>
+                                    <li><span class="italian-word">Prego</span> - Пожалуйста</li>
+                                    <li><span class="italian-word">Di niente</span> - Не за что</li>
+                                    <li><span class="italian-word">Figurati</span> - Не стоит (неформально)</li>
+                                    <li><span class="italian-word">Si figuri</span> - Не стоит (формально)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Упражнение 2.1 - Мини-диалоги</h4>
+                        <p>Завершите диалоги:</p>
+
+                        <div class="dialog">
+                            <div class="dialog-line dialog-a">A: Ecco il tuo caffè.</div>
+                            <div class="dialog-line dialog-b">B: <input type="text" class="fill-blank" placeholder="благодарность">!</div>
+                            <div class="dialog-line dialog-a">A: <input type="text" class="fill-blank" placeholder="ответ">!</div>
+                        </div>
+
+                        <div class="dialog">
+                            <div class="dialog-line dialog-a">A: Mi aiuti con la valigia?</div>
+                            <div class="dialog-line dialog-b">B: Certo!</div>
+                            <div class="dialog-line dialog-a">A: <input type="text" class="fill-blank" placeholder="благодарность">!</div>
+                            <div class="dialog-line dialog-b">B: <input type="text" class="fill-blank" placeholder="ответ">!</div>
+                        </div>
+
+                        <div class="dialog">
+                            <div class="dialog-line dialog-a">A: Dottore, <input type="text" class="fill-blank" placeholder="благодарность"> per la visita.</div>
+                            <div class="dialog-line dialog-b">B: <input type="text" class="fill-blank" placeholder="ответ">, signora.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="block3" class="block">
+                <div class="block-header">
+                    ☕ БЛОК 3: В БАРЕ (AL BAR)
+                </div>
+                <div class="block-content">
+                    <div class="theory">
+                        <h3>📚 Полезные сочетания глагол + существительное</h3>
+                        <div class="vocab-grid">
+                            <div class="vocab-item"><span class="italian-word">fare colazione</span><br>завтракать</div>
+                            <div class="vocab-item"><span class="italian-word">prendere un caffè</span><br>взять кофе</div>
+                            <div class="vocab-item"><span class="italian-word">bere un cappuccino</span><br>пить капучино</div>
+                            <div class="vocab-item"><span class="italian-word">mangiare un cornetto</span><br>есть круассан</div>
+                            <div class="vocab-item"><span class="italian-word">ordinare un tramezzino</span><br>заказать трамеццино</div>
+                            <div class="vocab-item"><span class="italian-word">pagare il conto</span><br>платить счет</div>
+                            <div class="vocab-item"><span class="italian-word">incontrare gli amici</span><br>встречать друзей</div>
+                            <div class="vocab-item"><span class="italian-word">leggere il giornale</span><br>читать газету</div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Упражнение 3.1 - Зачем мы идем в бар?</h4>
+                        <p>Завершите предложения, используя <strong>per + инфинитив</strong>:</p>
+                        <p><strong class="italian-word">Andiamo al bar per...</strong></p>
+
+                        <ol>
+                            <li><input type="text" class="fill-blank" placeholder="завтракать"></li>
+                            <li><input type="text" class="fill-blank" placeholder="встретить друзей"></li>
+                            <li><input type="text" class="fill-blank" placeholder="выпить кофе"></li>
+                            <li><input type="text" class="fill-blank" placeholder="съесть круассан"></li>
+                            <li><input type="text" class="fill-blank" placeholder="почитать газету"></li>
+                            <li><input type="text" class="fill-blank" placeholder="заказать трамеццино"></li>
+                        </ol>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Упражнение 3.2 - В баре</h4>
+                        <p>Переведите на итальянский:</p>
+                        <ol>
+                            <li>Я завтракаю в баре. - <input type="text" class="fill-blank" style="min-width: 200px;"></li>
+                            <li>Мы пьем капучино. - <input type="text" class="fill-blank" style="min-width: 200px;"></li>
+                            <li>Они встречают друзей. - <input type="text" class="fill-blank" style="min-width: 200px;"></li>
+                            <li>Ты заказываешь трамеццино. - <input type="text" class="fill-blank" style="min-width: 200px;"></li>
+                            <li>Вы платите счет. - <input type="text" class="fill-blank" style="min-width: 200px;"></li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <section id="block4" class="block">
+                <div class="block-header">
+                    📝 БЛОК 4: ГРАММАТИКА - НАСТОЯЩЕЕ ВРЕМЯ
+                </div>
+                <div class="block-content">
+                    <div class="theory">
+                        <h3>📚 Спряжение правильных глаголов</h3>
+                        <div class="verb-table">
+                            <div class="verb-group">
+                                <h4>I группа (-ARE)</h4>
+                                <p><span class="italian-word">parlare</span> (говорить)</p>
+                                <div class="conjugation">
+                                    io parl<strong>o</strong><br>
+                                    tu parl<strong>i</strong><br>
+                                    lui/lei parl<strong>a</strong><br>
+                                    noi parl<strong>iamo</strong><br>
+                                    voi parl<strong>ate</strong><br>
+                                    loro parl<strong>ano</strong>
+                                </div>
+                            </div>
+                            <div class="verb-group">
+                                <h4>II группа (-ERE)</h4>
+                                <p><span class="italian-word">prendere</span> (брать)</p>
+                                <div class="conjugation">
+                                    io prend<strong>o</strong><br>
+                                    tu prend<strong>i</strong><br>
+                                    lui/lei prend<strong>e</strong><br>
+                                    noi prend<strong>iamo</strong><br>
+                                    voi prend<strong>ete</strong><br>
+                                    loro prend<strong>ono</strong>
+                                </div>
+                            </div>
+                            <div class="verb-group">
+                                <h4>III группа (-IRE)</h4>
+                                <p><span class="italian-word">sentire</span> (слышать)</p>
+                                <div class="conjugation">
+                                    io sent<strong>o</strong><br>
+                                    tu sent<strong>i</strong><br>
+                                    lui/lei sent<strong>e</strong><br>
+                                    noi sent<strong>iamo</strong><br>
+                                    voi sent<strong>ite</strong><br>
+                                    loro sent<strong>ono</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Упражнение 4.1 - Спряжение</h4>
+                        <p>Поставьте глаголы в правильную форму:</p>
+                        <ol>
+                            <li>Io <input type="text" class="fill-blank"> (parlare) italiano.</li>
+                            <li>Tu <input type="text" class="fill-blank"> (prendere) il caffè?</li>
+                            <li>Lei <input type="text" class="fill-blank"> (mangiare) la pizza.</li>
+                            <li>Noi <input type="text" class="fill-blank"> (ascoltare) la musica.</li>
+                            <li>Voi <input type="text" class="fill-blank"> (bere) il vino.</li>
+                            <li>Loro <input type="text" class="fill-blank"> (dormire) molto.</li>
+                        </ol>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Упражнение 4.2 - Диалог в баре</h4>
+                        <p>Завершите диалог правильными формами глаголов:</p>
+                        <div class="dialog">
+                            <div class="dialog-line dialog-a"><strong>Cameriere:</strong> Buongiorno! Cosa <input type="text" class="fill-blank"> (desiderare)?</div>
+                            <div class="dialog-line dialog-b"><strong>Cliente:</strong> <input type="text" class="fill-blank"> (volere) un cappuccino e un cornetto, per favore.</div>
+                            <div class="dialog-line dialog-a"><strong>Cameriere:</strong> Subito! Lei <input type="text" class="fill-blank"> (fare) sempre colazione qui?</div>
+                            <div class="dialog-line dialog-b"><strong>Cliente:</strong> Sì, io <input type="text" class="fill-blank"> (venire) ogni mattina. E voi <input type="text" class="fill-blank"> (aprire) presto?</div>
+                            <div class="dialog-line dialog-a"><strong>Cameriere:</strong> Noi <input type="text" class="fill-blank"> (aprire) alle sei. Ecco il suo ordine.</div>
+                            <div class="dialog-line dialog-b"><strong>Cliente:</strong> Grazie! Quanto <input type="text" class="fill-blank"> (costare)?</div>
+                            <div class="dialog-line dialog-a"><strong>Cameriere:</strong> Tre euro e cinquanta.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="block5" class="block">
+                <div class="block-header">
+                    🍕 БЛОК 5: ЛЕКСИКА - ЕДА И НАПИТКИ
+                </div>
+                <div class="block-content">
+                    <div class="theory">
+                        <h3>📚 Словарик</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                            <div>
+                                <h4>🥤 Напитки (Bevande):</h4>
+                                <div class="vocab-grid">
+                                    <div class="vocab-item"><span class="italian-word">il caffè</span><br>кофе</div>
+                                    <div class="vocab-item"><span class="italian-word">il cappuccino</span><br>капучино</div>
+                                    <div class="vocab-item"><span class="italian-word">il latte</span><br>молоко</div>
+                                    <div class="vocab-item"><span class="italian-word">l'acqua</span><br>вода</div>
+                                    <div class="vocab-item"><span class="italian-word">il succo</span><br>сок</div>
+                                    <div class="vocab-item"><span class="italian-word">la birra</span><br>пиво</div>
+                                    <div class="vocab-item"><span class="italian-word">il vino</span><br>вино</div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4>🍞 Еда (Cibo):</h4>
+                                <div class="vocab-grid">
+                                    <div class="vocab-item"><span class="italian-word">il cornetto</span><br>круассан</div>
+                                    <div class="vocab-item"><span class="italian-word">il tramezzino</span><br>сэндвич</div>
+                                    <div class="vocab-item"><span class="italian-word">la pizza</span><br>пицца</div>
+                                    <div class="vocab-item"><span class="italian-word">il panino</span><br>булочка с начинкой</div>
+                                    <div class="vocab-item"><span class="italian-word">la brioche</span><br>бриошь</div>
+                                    <div class="vocab-item"><span class="italian-word">il gelato</span><br>мороженое</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Упражнение 5.1 - Что вы заказываете?</h4>
+                        <p>Ответьте на вопросы полными предложениями:</p>
+                        <ol>
+                            <li>Cosa prendi per colazione? <input type="text" class="fill-blank" style="min-width: 300px;"></li>
+                            <li>Quale bevanda preferisci? <input type="text" class="fill-blank" style="min-width: 300px;"></li>
+                            <li>Mangi spesso al bar? <input type="text" class="fill-blank" style="min-width: 300px;"></li>
+                            <li>Che cosa ordini di solito? <input type="text" class="fill-blank" style="min-width: 300px;"></li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <section id="block6" class="block">
+                <div class="block-header">
+                    🎭 БЛОК 6: СИТУАТИВНЫЕ УПРАЖНЕНИЯ
+                </div>
+                <div class="block-content">
+                    <div class="exercise">
+                        <h4>Упражнение 6.1 - Ролевая игра</h4>
+                        <p><strong>Ситуация:</strong> Вы в итальянском баре. Составьте диалог между клиентом и барменом.</p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                            <div style="background: #e3f2fd; padding: 1rem; border-radius: 10px;">
+                                <h4>👤 Клиент должен:</h4>
+                                <ul>
+                                    <li>✅ Поздороваться</li>
+                                    <li>☕ Заказать завтрак</li>
+                                    <li>🙏 Поблагодарить</li>
+                                    <li>💰 Спросить цену</li>
+                                    <li>👋 Попрощаться</li>
+                                </ul>
+                            </div>
+                            <div style="background: #f3e5f5; padding: 1rem; border-radius: 10px;">
+                                <h4>👨‍🍳 Бармен должен:</h4>
+                                <ul>
+                                    <li>✅ Поздороваться</li>
+                                    <li>📝 Принять заказ</li>
+                                    <li>😊 Ответить на благодарность</li>
+                                    <li>💰 Назвать цену</li>
+                                    <li>👋 Попрощаться</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1rem;">
+                            <textarea style="width: 100%; height: 200px; border-radius: 10px; border: 2px solid #3498db; padding: 1rem; font-family: inherit;" placeholder="Напишите ваш диалог здесь..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Упражнение 6.2 - Описание картинки</h4>
+                        <p>Опишите, что происходит в итальянском баре утром, используя изученную лексику.<br>
+                        <strong>Минимум 5 предложений.</strong></p>
+                        <textarea style="width: 100%; height: 150px; border-radius: 10px; border: 2px solid #e74c3c; padding: 1rem; font-family: inherit;" placeholder="1. La mattina molte persone vanno al bar per..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <section id="answers" class="answers">
+                <h3>✅ КЛЮЧИ К УПРАЖНЕНИЯМ</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div>
+                        <h4>🔤 Блок 1:</h4>
+                        <p><strong>Z = [ts]:</strong> grazie, abbastanza, mozzarella</p>
+                        <p><strong>Z = [dz]:</strong> zero, tramezzino</p>
+                    </div>
+
+                    <div>
+                        <h4>💬 Блок 2:</h4>
+                        <p><strong>Диалог 1:</strong> Grazie! / Prego!</p>
+                        <p><strong>Диалог 2:</strong> Grazie mille! / Di niente!</p>
+                        <p><strong>Диалог 3:</strong> La ringrazio / Si figuri</p>
+                    </div>
+
+                    <div>
+                        <h4>☕ Блок 3:</h4>
+                        <p>1. fare colazione</p>
+                        <p>2. incontrare gli amici</p>
+                        <p>3. prendere un caffè</p>
+                        <p>4. mangiare un cornetto</p>
+                        <p>5. leggere il giornale</p>
+                        <p>6. ordinare un tramezzino</p>
+                    </div>
+
+                    <div>
+                        <h4>📝 Блок 4:</h4>
+                        <p><strong>4.1:</strong> parlo, prendi, mangia, ascoltiamo, bevete, dormono</p>
+                        <p><strong>4.2:</strong> desidera, Vorrei, fa, vengo, aprite, apriamo, costa</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="homework">
+                <h3>🏠 ДОМАШНЕЕ ЗАДАНИЕ</h3>
+                <ul>
+                    <li>📚 Выучите новые слова из всех блоков</li>
+                    <li>🗣️ Потренируйте произношение слов с буквой Z</li>
+                    <li>✍️ Составьте 5 предложений со словосочетаниями из Блока 3</li>
+                    <li>🎭 Подготовьте диалог в баре (минимум 6 реплик от каждого участника)</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <button class="print-btn" onclick="window.print()" title="Распечатать воркбук">
+        🖨️
+    </button>
+
+    <script>
+        // Плавная прокрутка к разделам
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Автосохранение ввода пользователя
+        document.querySelectorAll('.fill-blank, textarea').forEach(input => {
+            const key = 'italian_workbook_' + Array.from(document.querySelectorAll('.fill-blank, textarea')).indexOf(input);
+            
+            // Загружаем сохраненное значение
+            input.value = localStorage.getItem(key) || '';
+            
+            // Сохраняем при изменении
+            input.addEventListener('input', function() {
+                localStorage.setItem(key, this.value);
+            });
+        });
+
+        // Показываем подсказку при загрузке
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                if (!localStorage.getItem('workbook_hint_shown')) {
+                    alert('💡 Подсказка: Ваши ответы автоматически сохраняются в браузере!');
+                    localStorage.setItem('workbook_hint_shown', 'true');
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
